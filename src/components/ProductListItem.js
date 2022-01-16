@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Heart from "react-heart";
+import { useLocalStorage } from "./storage.js";
 
 // Each image result should list at least a title, date
 //  of capture (ideally in earth_date) and a button to
@@ -13,15 +14,12 @@ import Heart from "react-heart";
 //       {product.earth_date}
 //       {product.rover.name}
 
-const ProductListItem = ({ product }) => {
-  const [active, setActive] = useState(false);
+const ProductListItem = ({ product, keyy }) => {
+  //   const [active, setActive] = useState(false);
+  const [active, setActive] = useLocalStorage(`${keyy}`, false);
 
   return (
     <>
-      {/* <div style={{ width: "1rem" }}>
-        <Heart isActive={active} onClick={() => setActive(!active)} />
-      </div> */}
-      {/* <div class="row row-cols-1 row-cols-md-3 g-4"> */}
       <div class="col mb-5">
         <div class="card h-100">
           <img
@@ -40,12 +38,11 @@ const ProductListItem = ({ product }) => {
               longer.
             </p>
             <div style={{ width: "1rem" }}>
-              <Heart isActive={active} onClick={() => setActive(!active)} />
+              <Heart isActive={!active} onClick={() => setActive(!active)} />
             </div>
           </div>
         </div>
       </div>
-      {/* </div> */}
     </>
   );
 };

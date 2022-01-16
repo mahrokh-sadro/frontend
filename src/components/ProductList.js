@@ -27,8 +27,8 @@ const ProductList = ({ products, loading }) => {
     <>
       <div class="row row-cols-1 row-cols-md-3 g-4 mr-5 ml-5">
         {/* <div class="col"> */}
-        {products.map((e, i) => (
-          <ProductListItem product={e} key={i} />
+        {products.map((e) => (
+          <ProductListItem product={e} key={e.id} keyy={e.id} />
         ))}
         {/* </div> */}
       </div>
