@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 import ProductList from "../components/ProductList";
-import MyPagination from "../components/MyPagination";
 import Header from "../components/Header";
 
 const ProductListingPage = (props) => {
@@ -41,11 +40,6 @@ const ProductListingPage = (props) => {
     <div>
       {/* <Header /> */}
       <ProductList products={props.products} loading={loading} />
-      {/* <MyPagination
-        postsPerPage={postsPerPage}
-        totalPosts={props.products.length}
-        paginate={paginate}
-      /> */}
     </div>
   );
 };

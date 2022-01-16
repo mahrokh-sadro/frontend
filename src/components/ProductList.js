@@ -12,25 +12,11 @@ const ProductList = ({ products, loading }) => {
   }
 
   return (
-    // <div>
-    //   <main className={classes.content}>
-    //     <div className={classes.toolbar} />
-    //     <Grid container justify="left" spacing={4}>
-    //       {posts.map((post) => (
-    //         <Grid key={post._id} item xs={12} sm={6} md={4} lg={3}>
-    //           <ProductListItem product={post} />
-    //         </Grid>
-    //       ))}
-    //     </Grid>
-    //   </main>
-    // </div>
     <>
       <div class="row row-cols-1 row-cols-md-3 g-4 mr-5 ml-5">
-        {/* <div class="col"> */}
         {products.map((e) => (
           <ProductListItem product={e} key={e.id} keyy={e.id} />
         ))}
-        {/* </div> */}
       </div>
     </>
   );
