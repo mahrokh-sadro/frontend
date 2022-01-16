@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import Heart from "react-heart";
 
 // Each image result should list at least a title, date
 //  of capture (ideally in earth_date) and a button to
@@ -13,8 +14,13 @@ import { Link } from "react-router-dom";
 //       {product.rover.name}
 
 const ProductListItem = ({ product }) => {
+  const [active, setActive] = useState(false);
+
   return (
     <>
+      {/* <div style={{ width: "1rem" }}>
+        <Heart isActive={active} onClick={() => setActive(!active)} />
+      </div> */}
       {/* <div class="row row-cols-1 row-cols-md-3 g-4"> */}
       <div class="col mb-5">
         <div class="card h-100">
@@ -33,6 +39,9 @@ const ProductListItem = ({ product }) => {
               lead-in to additional content. This content is a little bit
               longer.
             </p>
+            <div style={{ width: "1rem" }}>
+              <Heart isActive={active} onClick={() => setActive(!active)} />
+            </div>
           </div>
         </div>
       </div>
