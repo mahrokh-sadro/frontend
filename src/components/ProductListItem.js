@@ -31,12 +31,9 @@ const ProductListItem = ({ product, keyy }) => {
             alt="Hollywood Sign on The Hill"
           />
           <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">
-              This is a longer card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-            </p>
+            <h5 class="card-title"> {product.camera.full_name}</h5>
+            <p class="card-text">Date of Capture: {product.earth_date}</p>
+            <p class="card-text">Rover Name: {product.rover.name}</p>
             <div style={{ width: "1rem" }}>
               <Heart isActive={!active} onClick={() => setActive(!active)} />
             </div>
