@@ -4,7 +4,14 @@ import ProductListItem from "./ProductListItem";
 
 const ProductList = ({ products, loading }) => {
   if (loading) {
-    return <h2>Loading...</h2>;
+    // return <h2>Loading...</h2>;
+    return (
+      <div class="text-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    );
   }
 
   console.log(products.length + "    in list");
