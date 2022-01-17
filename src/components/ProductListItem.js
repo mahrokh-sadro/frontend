@@ -6,12 +6,6 @@ import ImageListItem from "@mui/material/ImageListItem";
 import ImageListItemBar from "@mui/material/ImageListItemBar";
 import ImageList from "@mui/material/ImageList";
 
-// {product.id}
-//       {product.camera.full_name}
-//       {product.img_src}
-//       {product.earth_date}
-//       {product.rover.name}
-
 const ProductListItem = (props) => {
   const [active, setActive] = useLocalStorage(`${props.keyy}`, false);
 
@@ -21,7 +15,6 @@ const ProductListItem = (props) => {
 
   return (
     <>
-      {/* <ImageList> */}
       <ImageListItem>
         <img
           src={`${props.item.img_src}?w=248&fit=crop&auto=format`}
@@ -32,7 +25,6 @@ const ProductListItem = (props) => {
         <div style={{ width: "2rem" }} className="ml-2 mt-2">
           <Heart isActive={!active} onClick={() => setActive(!active)} />
         </div>
-        {/* <ImageListItemBar position="below" title={props.item.earth_date} /> */}
         <ImageListItemBar
           title={props.item?.camera?.full_name}
           Camera
@@ -42,7 +34,6 @@ const ProductListItem = (props) => {
           sx={{ mt: -4, mr: 2 }}
         />
       </ImageListItem>
-      {/* </ImageList> */}
     </>
   );
 };
