@@ -34,8 +34,9 @@ const ProductListItem = (props) => {
         </div>
         {/* <ImageListItemBar position="below" title={props.item.earth_date} /> */}
         <ImageListItemBar
-          title={props.item.earth_date}
-          subtitle={<span>by: {props.item.earth_date}</span>}
+          title={props.item?.camera?.full_name}
+          Camera
+          subtitle={<span>{props.item.earth_date}</span>}
           position="below"
           align="right"
           sx={{ mt: -4, mr: 2 }}
