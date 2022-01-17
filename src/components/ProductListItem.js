@@ -2,11 +2,9 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Heart from "react-heart";
 import { useLocalStorage } from "./storage.js";
-
-// Each image result should list at least a title, date
-//  of capture (ideally in earth_date) and a button to
-//  “like” that image.
-// Each image can be “liked”, and a user should be able to undo their “like”
+import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
+import ImageList from "@mui/material/ImageList";
 
 // {product.id}
 //       {product.camera.full_name}
@@ -15,37 +13,35 @@ import { useLocalStorage } from "./storage.js";
 //       {product.rover.name}
 
 const ProductListItem = (props) => {
-  //   const [active, setActive] = useState(false);
   const [active, setActive] = useLocalStorage(`${props.keyy}`, false);
 
-  console.log(props.product.id);
+  // console.log(props.product.id);
   // {props.product.id}
   //     {props.product.img_src}
 
   return (
     <>
-      <div className="col mb-5">
-        <div className="card h-100">
-          <img
-            src={props.product.img_src}
-            className="card-img-top"
-            height="300px"
-            width="520px"
-            object-fit="contain"
-            alt="Hollywood Sign on The Hill"
-          />
-          <div className="card-body">
-            {/* {/* <h5 className="card-title"> {product.camera.full_name}</h5> */}
-            <p className="card-text">
-              Date of Capture: {props.product.earth_date}
-            </p>
-            {/* <p className="card-text">Rover: {product.rover.name}</p> */}
-            <div style={{ width: "1rem" }}>
-              <Heart isActive={!active} onClick={() => setActive(!active)} />
-            </div>
-          </div>
+      {/* <ImageList> */}
+      <ImageListItem>
+        <img
+          src={`${props.item.img_src}?w=248&fit=crop&auto=format`}
+          srcSet={`${props.item.img_src}?w=248&fit=crop&auto=format&dpr=2 2x`}
+          alt={props.item.title}
+          loading="lazy"
+        />
+        <div style={{ width: "2rem" }} className="ml-2 mt-2">
+          <Heart isActive={!active} onClick={() => setActive(!active)} />
         </div>
-      </div>
+        {/* <ImageListItemBar position="below" title={props.item.earth_date} /> */}
+        <ImageListItemBar
+          title={props.item.earth_date}
+          subtitle={<span>by: {props.item.earth_date}</span>}
+          position="below"
+          align="right"
+          sx={{ mt: -4, mr: 2 }}
+        />
+      </ImageListItem>
+      {/* </ImageList> */}
     </>
   );
 };

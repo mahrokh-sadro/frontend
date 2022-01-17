@@ -1,4 +1,10 @@
-import React from "react";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
+import ImageListItemBar from "@mui/material/ImageListItemBar";
+import InfiniteScroll from "react-infinite-scroll-component";
+import Grid from "@mui/material/Grid";
 
 import ProductListItem from "./ProductListItem";
 
@@ -13,14 +19,22 @@ const ProductList = ({ products, loading }) => {
       </div>
     );
   }
-
+  // {product.id}
+  //       {product.camera.full_name}
+  //       {product.img_src}
+  //       {product.earth_date}
+  //       {product.rover.name}
   console.log(products.length + "    in list");
   return (
     <>
-      <div className="row row-cols-1 row-cols-md-3 g-4 mr-5 ml-5">
-        {products.map((e, i) => (
-          <ProductListItem product={e} key={i} keyy={e.id} />
-        ))}
+      <div className="mr-5 ml-5">
+        <Box>
+          <ImageList variant="masonry" cols={3} gap={18}>
+            {products.map((item) => (
+              <ProductListItem item={item} keyy={item.img_src} key={item.id} />
+            ))}
+          </ImageList>
+        </Box>
       </div>
     </>
   );
